@@ -29,7 +29,6 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
 
                 tlRef.current
                     .set(container.current, { display: 'flex' })
-
                     .to(leftPanelRef.current, { xPercent: 0, duration: 0.8, ease: 'power3.inOut' })
                     .to(rightPanelRef.current, { xPercent: 0, duration: 0.8, ease: 'power3.inOut' }, '<')
                     .fromTo(
@@ -93,16 +92,19 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
             {/* Left Panel */}
             <div
                 ref={leftPanelRef}
-                className="w-1/2 h-full bg-gradient-to-br from-[#2b4162] to-[#12100e] flex items-center justify-center relative overflow-hidden"
+                className="hidden md:flex md:w-1/2 h-full bg-gradient-to-br from-[#2b4162] to-[#12100e] items-center justify-center relative overflow-hidden"
             >
                 <div className="absolute inset-0 bg-[url('/images/hero-bg.webp')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
                 <img src="/images/hero-text.svg" alt="VI Logo" className="w-1/2 relative z-10 drop-shadow-2xl" />
             </div>
 
             {/* Right Panel */}
-            <div ref={rightPanelRef} className="w-1/2 h-full bg-[#0f1014] text-white flex flex-col p-12 relative">
+            <div
+                ref={rightPanelRef}
+                className="w-full md:w-1/2 h-full bg-[#0f1014] text-white flex flex-col p-6 md:p-12 relative"
+            >
                 {/* Top Nav */}
-                <div className="flex justify-between items-start mb-20">
+                <div className="hidden md:flex justify-between items-start mb-20">
                     <div ref={navLinksRef} className="flex gap-8 font-bold text-sm uppercase tracking-wide">
                         <button className="bg-white text-black px-6 py-2 rounded-full">People</button>
                         <button className="text-gray-400 hover:text-white transition-colors py-2">Places</button>
@@ -112,7 +114,10 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
                 </div>
                 {/* Menu Items */}
                 <div className="flex-1 flex items-center">
-                    <ul ref={menuItemsRef} className="space-y-2 font-long text-6xl uppercase tracking-tighter">
+                    <ul
+                        ref={menuItemsRef}
+                        className="space-y-2 font-long text-4xl md:text-6xl uppercase tracking-tighter"
+                    >
                         {[
                             'Jason Duval',
                             'Lucia Caminos',
