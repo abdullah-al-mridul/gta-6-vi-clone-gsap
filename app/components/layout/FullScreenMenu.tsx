@@ -124,7 +124,7 @@ const FullScreenMenu: React.FC<FullScreenMenuProps> = ({ isOpen, onClose }) => {
                             'Brian Heder',
                         ].map((item) => (
                             <li key={item} className="overflow-hidden">
-                                <a href="#" className="block hover:text-rose-500 transition-colors">
+                                <a href="#" className="block hover:text-orange-200 transition-colors">
                                     {item}
                                 </a>
                             </li>
